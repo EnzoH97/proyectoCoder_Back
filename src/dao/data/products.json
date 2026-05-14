@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "title": "Promo 1",
+        "description": "Café o café con leche + tortita o factura",
+        "price": 1100,
+        "category": "promociones",
+        "stock": 10,
+        "status": true,
+        "code": "pro001",
+        "thumbnails": []
+    },
+    {
+        "id": 2,
+        "title": "Promo 2",
+        "description": "Café/café con leche + tortita/factura + jugo natural",
+        "price": 1700,
+        "category": "promociones",
+        "stock": 10,
+        "status": true,
+        "code": "pro002",
+        "thumbnails": []
+    },
+    {
+        "id": 3,
+        "title": "Cafe",
+        "description": "Vaso de cafe mediano",
+        "price": 800,
+        "category": "bebidas",
+        "stock": 20,
+        "status": true,
+        "code": "beb001",
+        "thumbnails": []
+    },
+    {
+        "id": 4,
+        "title": "Cafe con leche",
+        "description": "Vaso de cafe con leche mediano",
+        "price": 1000,
+        "category": "bebidas",
+        "stock": 20,
+        "status": true,
+        "code": "beb002",
+        "thumbnails": []
+    },
+    {
+        "id": 5,
+        "title": "Jugo de naranja",
+        "description": "Vaso de jugo de naranja natural",
+        "price": 700,
+        "category": "bebidas",
+        "stock": 15,
+        "status": true,
+        "code": "beb003",
+        "thumbnails": []
+    },
+    {
+        "id": 6,
+        "title": "Tortitas",
+        "description": "Tortitas caseras a elección",
+        "price": 350,
+        "category": "panaderia",
+        "stock": 30,
+        "status": true,
+        "code": "pan001",
+        "thumbnails": []
+    },
+    {
+        "id": 7,
+        "title": "Facturas",
+        "description": "Facturas caseras a elección",
+        "price": 450,
+        "category": "panaderia",
+        "stock": 25,
+        "status": true,
+        "code": "pan002",
+        "thumbnails": []
+    },
+    {
+        "id": 8,
+        "title": "Churros",
+        "description": "Churros rellenos de dulce de leche o chocolate",
+        "price": 1000,
+        "category": "panaderia",
+        "stock": 15,
+        "status": true,
+        "code": "pan003",
+        "thumbnails": []
+    },
+    {
+        "id": 9,
+        "title": "Donas",
+        "description": "Donas glaseadas o rellenas a elección",
+        "price": 1000,
+        "category": "panaderia",
+        "stock": 15,
+        "status": true,
+        "code": "pan004",
+        "thumbnails": []
+    },
+    {
+        "id": 10,
+        "title": "Magdalena",
+        "description": "Magdalenas rellena o glaseada a elección",
+        "price": 600,
+        "category": "panaderia",
+        "stock": 20,
+        "status": true,
+        "code": "pan005",
+        "thumbnails": []
+    },
+    {
+        "id": 11,
+        "title": "Waffles",
+        "description": "Waffles dulces a elección",
+        "price": 1200,
+        "category": "panaderia",
+        "stock": 10,
+        "status": true,
+        "code": "pan006",
+        "thumbnails": []
+    },
+    {
+        "id": 12,
+        "title": "Sandwich de miga",
+        "description": "Sandwich de miga a elección",
+        "price": 500,
+        "category": "panaderia",
+        "stock": 20,
+        "status": true,
+        "code": "pan007",
+        "thumbnails": []
+    }
+]
