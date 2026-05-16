@@ -1,0 +1,16 @@
+{{>navBar}}
+<h1>{{message}}</h1>
+
+{{#each products}}
+{{#if (isStock this.stock)}}
+
+<ul>
+    <li>
+        <p>{{this.title}}</p>
+        <p>{{this.description}}</p>
+        <p>{{this.price}}</p>
+    </li>
+</ul>
+
+{{/if}}
+{{/each}}
