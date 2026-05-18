@@ -1,5 +1,6 @@
 import { Router, json, urlencoded } from "express";
 import ProductManager from "../dao/ProductManager.js";
+import { uploader } from "../utils.js";
 
 const router = Router();
 
@@ -16,7 +17,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // obtener un producto por id
-router.get("/api/products/:pid", async (req, res, next) => {
+router.get("/:pid", async (req, res, next) => {
     try {
         const { pid } = req.params;
         const requiredProduct = await ProductManager.getProductById(pid);
@@ -27,9 +28,18 @@ router.get("/api/products/:pid", async (req, res, next) => {
 });
 
 // crear un nuevo producto
-router.post("/", async (req, res, next) => {
+// terminarlo en la semana 
+router.post("/", 
+    uploader.single("thumbnail"), 
+    async (req, res, next) => {
     try {
-        console.log(req.body);
+        if(req.body.status == "on"){
+            req.body.status = true
+        }else{
+            req.body.status = false
+        }
+        const newProduct = await ProductManager.createProduct({...req.body, thumbnails: [req.file.path]})
+        res.status(201).json(newProduct)
     } catch (error) {
         next(error);
     }

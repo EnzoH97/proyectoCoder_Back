@@ -3,7 +3,6 @@ import ProductManager from "../dao/ProductManager.js";
 
 const router = Router();
 
-
 router.get("/", async (req, res, next) => {
     res.render("index")
 })
@@ -20,5 +19,12 @@ router.get("/products", async (req, res, next) => {
     }
 });
 
+router.get("/create-products", async (req, res, next) => {
+    try{
+        res.render("products-form")
+    }catch(error){
+        next(error)
+    }
+})
 
 export default router;

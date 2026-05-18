@@ -29,7 +29,7 @@ class ProductManager extends GenericManager {
         else product.id = products[products.length - 1].id + 1;
 
         products.push(product);
-        await fs.writeFile(this.filePath, JSON.stringify(products), { encoding: "utf-8" });
+        await fs.writeFile(this.filePath, JSON.stringify(products, null, 4), { encoding: "utf-8" });
         return product;
     }
 
