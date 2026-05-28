@@ -27,4 +27,12 @@ router.get("/create-products", async (req, res, next) => {
     }
 })
 
+router.get('/chat', (req, res) => {
+    const { user } = req.query;
+    if (!user) {
+        return res.redirect('/');
+    }
+    res.render('chat', { user });
+});
+
 export default router;

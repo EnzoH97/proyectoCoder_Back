@@ -1,0 +1,23 @@
+
+
+<div class="chat-container">
+    <header>
+        <h1>Sala de Chat</h1>
+        <p>Hola, <span id="username">{{user}}</span></p>
+    </header>
+
+    <div id="chat-box" class="messages-container">
+
+    </div>
+
+    <form class="input-container">
+        <input type="text" name="message" placeholder="Escribe un mensaje..." autocomplete="off">
+        <button id="send-btn">Enviar</button>
+    </form>
+</div>
+{{!-- USAMOS SWEETALERT PARA TENER UNA NOTIFICACION DE NUEVO USER --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{!-- ACA IMPORTAREMOS EN ORDEN LOS SCRIPTS, PRIMERO LA CDN DE SOCKET.IO
+Y LUEGO NUESTRO SCRIPT --}}
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
