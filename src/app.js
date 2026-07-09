@@ -4,8 +4,8 @@ import { engine } from "express-handlebars";
 import productsRouter from "./routes/products.router.js";
 import viewsRouter from "./routes/views.router.js";
 import { root } from "./utils.js";
-import {Server} from "socket.io"
-
+import {Server} from "socket.io";
+import { connectToMongo } from "./config/dataBase.js";
 
 const app = express();
 
@@ -32,6 +32,7 @@ app.use(async (err, req, res, next) => {
 
 const httpServer = app.listen(3000, () => {
     console.log("servidor inciado")
+    connectToMongo();
 });
 
 const socketServer = new Server(httpServer);
@@ -39,10 +40,6 @@ const socketServer = new Server(httpServer);
 socketServer.on("connection", (clientSocket) => {
     clientSocket.broadcast.emit("new-user-connected", clientSocket.id);
     clientSocket.on("send-message", (message) => {
-        // Para investigar
-        // clientSocket.emit()
-        // socketServer.emit()
-        // clientSocket.broadcast.emit()
         socketServer.emit("new-message", { id: clientSocket.id, message })
     })
 }) 
