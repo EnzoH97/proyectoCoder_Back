@@ -1,5 +1,6 @@
 import { Router } from "express";
-import ProductManager from "../dao/ProductManager.js";
+import { productModel } from "../model/product.model.js"
+//import ProductManager from "../dao/ProductManager.js";
 
 const router = Router();
 
@@ -9,9 +10,16 @@ router.get("/", async (req, res, next) => {
 
 router.get("/products", async (req, res, next) => {
     try {
-        const products = await ProductManager.getProducts();
+
+        const { page } = req.query;
+        //const products = await ProductManager.getProducts();
+        const pagination = await productModel.find({}).paginate({
+            limit: 2,
+            lean: true,
+            page
+        });
         res.render("products", {
-            products,
+            pagination,
             message: "Tienda"
         })
     } catch (error) {

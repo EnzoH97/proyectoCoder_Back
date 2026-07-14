@@ -1,16 +1,28 @@
 {{>navBar}}
-<h1>{{message}}</h1>
+<div class="container">
+    <h1>{{message}}</h1>
 
-{{#each products}}
-{{#if (isStock this.stock)}}
+    {{#each pagination.docs}}
+    {{#if (isStock this.stock)}}
+    <ul style="list-style: none; padding: 0; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+        <li>
+            <p style="font-weight: bold; font-size: 1.1rem;">{{this.title}}</p>
+            <p style="color: #666; font-size: 0.9rem;">{{this.description}}</p>
+            <p style="font-weight: bold; color: #0084ff;">${{this.price}}</p>
+        </li>
+    </ul>
+    {{/if}}
+    {{/each}}
 
-<ul>
-    <li>
-        <p>{{this.title}}</p>
-        <p>{{this.description}}</p>
-        <p>{{this.price}}</p>
-    </li>
-</ul>
+    <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+        {{#if pagination.hasPrevPage}}
+        <a href="/products?page={{pagination.prevPage}}" style="color: #0084ff; text-decoration: none; font-weight: bold;">← pag {{pagination.prevPage}}</a>
+        {{else}}
+        <span></span>
+        {{/if}}
 
-{{/if}}
-{{/each}}
+        {{#if pagination.hasNextPage}}
+        <a href="/products?page={{pagination.nextPage}}" style="color: #0084ff; text-decoration: none; font-weight: bold;">pag {{pagination.nextPage}} →</a>
+        {{/if}}
+    </div>
+</div>
