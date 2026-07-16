@@ -1,0 +1,35 @@
+{{>navBar}}
+<div class="container" style="max-width: 800px; margin: 2rem auto;">
+    <h1>Tu Carrito de Compras</h1>
+    <p style="color: #666;">ID de Carrito: {{cart._id}}</p>
+    <hr>
+
+    {{#if cart.products.length}}
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            {{#each cart.products}}
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid #eee; border-radius: 4px;">
+                    <div>
+                        <!-- Accedemos de forma directa gracias al populate -->
+                        <h3 style="margin: 0;">{{this.productId.title}}</h3>
+                        <p style="margin: 0.25rem 0; color: #666;">Precio Unitario: ${{this.productId.price}}</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p style="margin: 0; font-weight: bold;">Cantidad: {{this.quantity}}</p>
+                        <p style="margin: 0; color: green;">Subtotal: ${{multiply this.productId.price this.quantity}}</p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        
+        <div style="margin-top: 2rem; text-align: right;">
+            <button id="clear-cart-btn" style="background-color: #dc3545; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">
+                Vaciar Carrito
+            </button>
+        </div>
+    {{else}}
+        <div style="text-align: center; padding: 2rem;">
+            <p style="font-size: 1.2rem; color: #888;">El carrito está vacío.</p>
+            <a href="/products" style="color: #0084ff; text-decoration: none; font-weight: bold;">Ir a la tienda</a>
+        </div>
+    {{/if}}
+</div>
