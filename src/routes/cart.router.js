@@ -113,7 +113,7 @@ router.put("/:cid/products/:pid", async (req, res, next) => {
             return res.status(404).json({ error: "Carrito no encontrado" });
         }
         const productIndex = cart.products.findIndex(
-            p => p.productId && p.productId.toString() === pid
+            p => p._id && p._id.toString() === pid
         );
         if (productIndex === -1) {
             return res.status(404).json({ error: "El producto no existe en este carrito" });
@@ -125,6 +125,7 @@ router.put("/:cid/products/:pid", async (req, res, next) => {
         next(error);
     }
 });
+
 
 // 7. DELETE /api/carts/:cid - Vaciar el carrito completo
 router.delete("/:cid", async (req, res, next) => {

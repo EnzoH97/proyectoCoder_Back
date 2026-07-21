@@ -12,7 +12,8 @@ const app = express();
 
 app.engine("handlebars", engine({
     helpers: {
-        isStock: (stock) => stock > 1 
+        isStock: (stock) => stock > 1,
+        multiply: (a, b) => a * b
     },
     partialsDir: root + "/views/partials"
 }));
